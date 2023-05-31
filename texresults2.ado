@@ -29,6 +29,8 @@ local isalph = regexm("`texmacro'","^[a-zA-Z ]*$")
 local texmacro = "\" + "`texmacro'"
 if `isalph' == 0 di as text `""`texmacro'" may not be a valid LaTeX macro name"'
 
+if substr("`texmacro'",1,3)=="end" di as text `""`texmacro'" may not start with "end"' //latex macros can't start with "end"
+
 if !missing("`xspace'") local xspace = "\" + "`xspace'"
 
 // display "opcion: `xspace'"
